@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>自定义事件总线</title>
+    <script src="./eventBus.js"></script>
   </head>
-  <body></body>
+  <body>
+    <script>
+      // 绑定事件
+      myEventBus.on('add', function(data) {
+        console.log('add事件1', data)
+      })
+      myEventBus.on('add', function(data) {
+        console.log('add事件2', data)
+      })
+      myEventBus.on('delete', function(data) {
+        console.log('delete事件1', data)
+      })
+      // 解绑
+      myEventBus.off('add')
+      // 分发事件
+      myEventBus.emit('add', '测试1')
+      myEventBus.emit('delete', '测试1')
+      // EventBus.emit('add','测试2')
+    </script>
+  </body>
 </html>
